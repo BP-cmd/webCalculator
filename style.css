@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+/* for Testing only */
+.calculator-container, .keys-container>*, .display, .keys-container {
+    border: 1px solid black;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator-container{
+    padding: 10px;
+    background-color:gray;
+}
+
+.keys-container{
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 300px; */
+}
+
+.keys-container>*{
+    flex : 25%;
+    height: 26px;
+}
