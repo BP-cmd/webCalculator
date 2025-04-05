@@ -2,6 +2,7 @@ let digits = document.querySelectorAll(".key");
 let display = document.querySelector(".display");
 let oppKeys = document.querySelectorAll(".opp");
 let equals = document.querySelector(".equals");
+let reset = document.querySelector(".reset");
 let num1, num2, operator;
 let newEntry = true;
 
@@ -17,6 +18,7 @@ oppKeys.forEach(key=>{
     })
 });
 equals.addEventListener("click", operate);
+reset.addEventListener("click", resetCal);
 
 function updateDisplay(str){
     if(newEntry) {
@@ -42,4 +44,10 @@ function calculate (n1, n2, operation){
         case '*' : return n1 * n2;
         case '/' : return n1 / n2;
     }
+}
+
+function resetCal(){
+    display.innerText = "0";
+    newEntry = true;
+    operator = undefined;
 }
