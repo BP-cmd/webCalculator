@@ -11,7 +11,13 @@ let newEntry = true;
 let numEntered = false;
 
 
-
+document.querySelector("body").addEventListener("keydown", (e)=>{
+    let key = e.key;
+    if(key>='0' && key<='9'){
+        numEntered = true;
+        updateDisplay(key);
+    }
+})
 digits.forEach(digit => digit.addEventListener("click", () => {
     numEntered = true;
     updateDisplay(digit.innerText)
