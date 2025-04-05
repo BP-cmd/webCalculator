@@ -54,3 +54,9 @@ body{
     border-radius: 18px;
     box-shadow: 0px 0px 3px rgb(169, 179, 98) inset;
 }
+
+.selected {
+    background-color: beige;
+    color:rgb(160, 159, 159);
+    font-weight: 900;
+}
