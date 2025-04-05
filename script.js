@@ -1,39 +1,45 @@
-let display= document.querySelector(".display");
-let keys = document.querySelectorAll(".key");
-let clear = document.querySelector(".clear");
+let digits = document.querySelectorAll(".key");
+let display = document.querySelector(".display");
+let oppKeys = document.querySelectorAll(".opp");
 let equals = document.querySelector(".equals");
+let num1, num2, operator;
+let newEntry = true;
 
-
-keys.forEach((key)=>{
+digits.forEach(digit => digit.addEventListener("click", () => updateDisplay(digit.innerText)));
+oppKeys.forEach(key=>{
     key.addEventListener("click", ()=>{
-        display.innerText += key.innerText;
-    });
-});
-
-clear.addEventListener("click", ()=>{
-    display.innerText = display.innerText.slice(0, -1);
-});
-
-equals.addEventListener("click", ()=>evaluate(display.innerText));
-
-function evaluate(numStr){
-    let oppList = [ '/', '*','+', '-'];
-    let opp;
-    oppList.forEach((element)=>{
-        if(numStr.includes(element) && opp === undefined){
-            opp = element;
+        if(operator){
+            operate();
         }
-    });
-    let num1, num2;
-    [num1, num2] = numStr.split(opp);
-    display.innerText = calculate(num1, num2, opp);
+        operator=key.innerText;    
+        num1 = Number(display.innerText);
+        newEntry = true;
+    })
+});
+equals.addEventListener("click", operate);
+
+function updateDisplay(str){
+    if(newEntry) {
+        display.innerText=str;
+        newEntry = false;
+        return;
+    }
+    display.innerText += str;
 }
 
-function calculate(num1, num2, operation){
+function operate(){
+    if(!operator) return;
+    num2 = Number(display.innerText);
+    newEntry = true;
+    updateDisplay(calculate(num1, num2, operator));
+    operator = undefined;
+}
+
+function calculate (n1, n2, operation){
     switch(operation){
-        case '+': return +num1 + +num2;
-        case '-': return num1 - num2;
-        case '/': return num1 / num2;
-        case '*': return num1 * num2;
+        case '+' : return n1 + n2;
+        case '-' : return n1 - n2;
+        case '*' : return n1 * n2;
+        case '/' : return n1 / n2;
     }
 }
