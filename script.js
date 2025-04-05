@@ -1,7 +1,7 @@
 let display= document.querySelector(".display");
 let keys = document.querySelectorAll(".key");
 let clear = document.querySelector(".clear");
-let equals = document.querySelector(".equals")
+let equals = document.querySelector(".equals");
 
 
 keys.forEach((key)=>{
@@ -17,10 +17,10 @@ clear.addEventListener("click", ()=>{
 equals.addEventListener("click", ()=>evaluate(display.innerText));
 
 function evaluate(numStr){
-    let oppList = ['+', '-', '/', '*'];
+    let oppList = [ '/', '*','+', '-'];
     let opp;
     oppList.forEach((element)=>{
-        if(numStr.includes(element)){
+        if(numStr.includes(element) && opp === undefined){
             opp = element;
         }
     });
