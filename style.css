@@ -10,12 +10,15 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgb(211, 211, 211);
 }
 
 .calculator-container{
-    padding: 10px;
+    padding: 25px 10px;
     background-color:rgb(255, 157, 157);
     border-radius: 9px;
+    margin: 36px;
+    box-shadow: 0px 0px 9px grey;
 }
 
 .keys-container{
@@ -36,7 +39,7 @@ body{
     margin: 4px 1px;
     height: 50px;
 
-    
+    font-size: 18px;
     border-radius: 54px;
     background-color: rgb(251, 193, 193);
     box-shadow:0px 0px 3px rgb(213, 109, 109) inset;
@@ -55,7 +58,17 @@ body{
     box-shadow: 0px 0px 3px rgb(169, 179, 98) inset;
 }
 
-.selected {
+.equals{
+    background-color: rgb(250, 233, 211);
+    color:chocolate;
+    font-size: 24px;
+}
+.opp{
+    background-color: rgb(255, 186, 136);
+    color: rgb(80, 108, 80);
+}
+
+.selected, .reset {
     background-color: beige;
     color:rgb(160, 159, 159);
     font-weight: 900;
